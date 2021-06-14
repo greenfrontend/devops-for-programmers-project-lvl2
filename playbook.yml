@@ -3,10 +3,20 @@
   become: yes
 
   tasks:
-    - name: Install python3-docker
+    - name: Update cache
       apt:
-        name: python3-docker
-        state: present
+        update_cache: yes
+
+    - name: Install pip
+      include_role:
+        name: geerlingguy.pip
+      vars:
+        pip_install_packages:
+          - name: docker
+
+    - name: Install docker
+      include_role:
+        name: geerlingguy.docker
 
     - name: Start redmine container
       community.docker.docker_container:
