@@ -3,3 +3,6 @@ roles:
   - name: datadog.datadog
   - name: geerlingguy.pip
   - name: geerlingguy.docker
+
+collections:
+  - name: community.docker
