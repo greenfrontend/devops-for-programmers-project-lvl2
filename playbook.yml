@@ -1,0 +1,39 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Install python3-docker
+      apt:
+        name: python3-docker
+        state: present
+
+    - name: Start redmine container
+      community.docker.docker_container:
+        name: myapplication
+        image: redmine
+        state: started
+        container_default_behavior: no_defaults
+        ports:
+          - "80:3000"
+        env:
+          REDMINE_DB_POSTGRES: "{{ REDMINE_DB_POSTGRES }}"
+          REDMINE_DB_PORT: "{{ REDMINE_DB_PORT }}"
+          REDMINE_DB_USERNAME: "{{ REDMINE_DB_USERNAME }}"
+          REDMINE_DB_PASSWORD: "{{ REDMINE_DB_PASSWORD }}"
+          REDMINE_DB_DATABASE: "{{ REDMINE_DB_DATABASE }}"
+
+    - name: Datadog role
+      include_role:
+        name: datadog.datadog
+      vars:
+        datadog_api_key: "{{ DATADOG_API_KEY }}"
+        datadog_site: "datadoghq.com"
+        datadog_checks:
+          http_check:
+            init_config:
+            instances:
+                - name: Application health check status
+                  url: http://localhost:80
+                  timeout: 5
+                  method: GET
