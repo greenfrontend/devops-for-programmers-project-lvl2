@@ -13,9 +13,9 @@
         pip_install_packages:
           - name: docker
 
-    - name: Install docker
-      include_role:
-        name: geerlingguy.docker
+    # - name: Install docker
+    #   include_role:
+    #     name: geerlingguy.docker
 
     - name: Start redmine container
       community.docker.docker_container:
