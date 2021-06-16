@@ -29,7 +29,7 @@
           REDMINE_DB_DATABASE: "{{ REDMINE_DB_DATABASE }}"
 
     - name: Datadog role
-      when: inventory_hostname in groups['webservers']
+      when: inventory_hostname in groups['webservers']|default([])
       include_role:
         name: datadog.datadog
       vars:
