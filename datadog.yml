@@ -1,0 +1,8 @@
+---
+- hosts: webservers
+
+  tasks:
+
+    - name: Datadog role
+      include_role:
+        name: datadog.datadog

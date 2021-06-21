@@ -1,0 +1,25 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Update cache
+      apt:
+        update_cache: yes
+
+    - name: Install pip
+      include_role:
+        name: geerlingguy.pip
+      vars:
+        pip_install_packages:
+          - name: docker
+
+    - name: Start redmine container
+      community.docker.docker_container:
+        name: myapplication
+        image: redmine
+        state: started
+        container_default_behavior: no_defaults
+        ports:
+          - "80:3000"
+        # env_file: group_vars/all.yml
+
