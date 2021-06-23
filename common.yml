@@ -23,4 +23,4 @@
         state: started
         container_default_behavior: no_defaults
         ports:
-          - "{{redmine_port}}:3000"
+          - "{{ redmine_port }}:3000"
