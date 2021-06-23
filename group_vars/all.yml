@@ -1,4 +1,5 @@
 ---
+REDMINE_PORT: 80
 REDMINE_DB_POSTGRES: db-postgresql-nyc3-53919-do-user-9218209-0.b.db.ondigitalocean.com
 REDMINE_DB_PORT: 25060
 REDMINE_DB_DATABASE: defaultdb

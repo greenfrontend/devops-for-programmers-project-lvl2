@@ -1,9 +1,6 @@
 ---
 - hosts: all
 
-  vars:
-    redmine_port: 80
-
   tasks:
     - name: Update cache
       apt:
@@ -23,4 +20,4 @@
         state: started
         container_default_behavior: no_defaults
         ports:
-          - "{{ redmine_port }}:3000"
+          - "{{ REDMINE_PORT }}:3000"
