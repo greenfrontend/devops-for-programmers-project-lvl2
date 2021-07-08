@@ -5,7 +5,7 @@
     - name: Start redmine container
       community.docker.docker_container:
         name: myapplication
-        image: "redmine:{{ REDMINE_VERSION }}"
+        image: redmine:4.2
         state: started
         container_default_behavior: no_defaults
         ports:
