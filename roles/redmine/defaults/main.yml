@@ -1,0 +1,7 @@
+---
+redmine_version: "4.2"
+redmine_db_port: "5432"
+redmine_db_postgres: "redmine"
+redmine_db_database: "redmine"
+redmine_db_username: "redmine"
+redmine_db_password: "redmine"

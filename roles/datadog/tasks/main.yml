@@ -1,0 +1,4 @@
+---
+- name: Import datadog role
+  import_role:
+    name: datadog.datadog

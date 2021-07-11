@@ -1,0 +1,11 @@
+---
+- name: Update cache
+  apt:
+    update_cache: yes
+
+- name: Install pip
+  include_role:
+    name: geerlingguy.pip
+  vars:
+    pip_install_packages:
+      - name: docker

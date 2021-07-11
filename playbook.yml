@@ -1,4 +1,6 @@
 ---
-- import_playbook: common.yml
-- import_playbook: redmine.yml
-- import_playbook: datadog.yml
+- hosts: all
+  roles:
+    - common
+    - redmine
+    - datadog
