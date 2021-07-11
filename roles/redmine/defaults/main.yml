@@ -1,5 +1,6 @@
 ---
 redmine_version: "4.2"
+redmine_port: "80"
 redmine_db_port: "5432"
 redmine_db_postgres: "redmine"
 redmine_db_database: "redmine"
